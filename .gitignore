@@ -1,0 +1,68 @@
+### Compiled class files ###
+target/
+build/
+out/
+
+### Logs ###
+*.log
+logs/
+spring.log
+
+### Temporary files ###
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+
+### OS-generated files ###
+.DS_Store
+Thumbs.db
+
+### Maven specific ###
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+### Gradle specific ###
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Eclipse ###
+.settings/
+.classpath
+.project
+
+### VS Code ###
+.vscode/
+
+### STS (Spring Tool Suite) ###
+.springBeans
+
+### Node.js (if using React/Angular with Spring Boot) ###
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+### Database ###
+*.h2.db
+*.mv.db
+*.db
+
+### Sensitive files ###
+.env
+application.properties
+application.yml
+secrets.json
+config/
