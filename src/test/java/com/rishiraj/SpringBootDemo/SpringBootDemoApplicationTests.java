@@ -8,6 +8,8 @@ class SpringBootDemoApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// This test verifies that the Spring application context loads successfully.
+		// No implementation is needed unless specific beans or context checks are required.
 	}
 
 }
