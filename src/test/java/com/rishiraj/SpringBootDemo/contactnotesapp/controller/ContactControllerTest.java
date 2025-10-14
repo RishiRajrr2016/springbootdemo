@@ -35,10 +35,17 @@ class ContactControllerTest {
 
     @Test
     void testGetContacts() throws Exception {
-        List<Contact> contacts = Arrays.asList(
-                new Contact(1L, "John Doe", "john@example.com", "1234567890"),
-                new Contact(2L, "Jane Smith", "jane@example.com", "0987654321")
-        );
+    Contact contact1 = new Contact();
+    contact1.setId(1L);
+    contact1.setName("John Doe");
+    contact1.setEmail("john@example.com");
+    contact1.setPhone("1234567890");
+    Contact contact2 = new Contact();
+    contact2.setId(2L);
+    contact2.setName("Jane Smith");
+    contact2.setEmail("jane@example.com");
+    contact2.setPhone("0987654321");
+    List<Contact> contacts = Arrays.asList(contact1, contact2);
         when(contactService.getContacts()).thenReturn(contacts);
 
         mockMvc.perform(get("/api/contacts"))
@@ -49,7 +56,11 @@ class ContactControllerTest {
 
     @Test
     void testCreateContact() throws Exception {
-        Contact savedContact = new Contact(1L, "John Doe", "john@example.com", "1234567890");
+    Contact savedContact = new Contact();
+    savedContact.setId(1L);
+    savedContact.setName("John Doe");
+    savedContact.setEmail("john@example.com");
+    savedContact.setPhone("1234567890");
         when(contactService.saveContact(any(Contact.class))).thenReturn(savedContact);
 
         String contactJson = "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"phone\":\"1234567890\"}";

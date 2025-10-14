@@ -35,10 +35,15 @@ class NoteControllerTest {
 
     @Test
     void testGetNotes() throws Exception {
-        List<Note> notes = Arrays.asList(
-                new Note(1L, "Title1", "Content1"),
-                new Note(2L, "Title2", "Content2")
-        );
+    Note note1 = new Note();
+    note1.setId(1L);
+    note1.setTitle("Title1");
+    note1.setContent("Content1");
+    Note note2 = new Note();
+    note2.setId(2L);
+    note2.setTitle("Title2");
+    note2.setContent("Content2");
+    List<Note> notes = Arrays.asList(note1, note2);
         when(noteService.getAllNotes()).thenReturn(notes);
 
         mockMvc.perform(get("/api/notes"))
@@ -49,7 +54,10 @@ class NoteControllerTest {
 
     @Test
     void testCreateNote() throws Exception {
-        Note savedNote = new Note(1L, "Title1", "Content1");
+    Note savedNote = new Note();
+    savedNote.setId(1L);
+    savedNote.setTitle("Title1");
+    savedNote.setContent("Content1");
         when(noteService.saveNote(any(Note.class))).thenReturn(savedNote);
 
         String noteJson = "{\"title\":\"Title1\",\"content\":\"Content1\"}";

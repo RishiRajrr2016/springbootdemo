@@ -6,11 +6,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class ContactTest {
     @Test
     void testContactConstructorAndGetters() {
-        Contact contact = new Contact(1L, "John Doe", "john@example.com", "1234567890");
-        assertEquals(1L, contact.getId());
-        assertEquals("John Doe", contact.getName());
-        assertEquals("john@example.com", contact.getEmail());
-        assertEquals("1234567890", contact.getPhone());
+    Contact contact = new Contact();
+    contact.setId(1L);
+    contact.setName("John Doe");
+    contact.setEmail("john@example.com");
+    contact.setPhone("1234567890");
+    assertEquals(1L, contact.getId());
+    assertEquals("John Doe", contact.getName());
+    assertEquals("john@example.com", contact.getEmail());
+    assertEquals("1234567890", contact.getPhone());
     }
 
     @Test

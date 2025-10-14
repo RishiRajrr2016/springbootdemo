@@ -28,10 +28,15 @@ class NoteServiceTest {
 
     @Test
     void testGetAllNotes() {
-        List<Note> notes = Arrays.asList(
-                new Note(1L, "Title1", "Content1"),
-                new Note(2L, "Title2", "Content2")
-        );
+    Note note1 = new Note();
+    note1.setId(1L);
+    note1.setTitle("Title1");
+    note1.setContent("Content1");
+    Note note2 = new Note();
+    note2.setId(2L);
+    note2.setTitle("Title2");
+    note2.setContent("Content2");
+    List<Note> notes = Arrays.asList(note1, note2);
         when(noteRepository.findAll()).thenReturn(notes);
         List<Note> result = noteService.getAllNotes();
         assertEquals(2, result.size());
@@ -40,11 +45,16 @@ class NoteServiceTest {
 
     @Test
     void testSaveNote() {
-        Note note = new Note(null, "Title1", "Content1");
-        Note savedNote = new Note(1L, "Title1", "Content1");
-        when(noteRepository.save(note)).thenReturn(savedNote);
-        Note result = noteService.saveNote(note);
-        assertNotNull(result.getId());
-        assertEquals("Title1", result.getTitle());
+    Note note = new Note();
+    note.setTitle("Title1");
+    note.setContent("Content1");
+    Note savedNote = new Note();
+    savedNote.setId(1L);
+    savedNote.setTitle("Title1");
+    savedNote.setContent("Content1");
+    when(noteRepository.save(note)).thenReturn(savedNote);
+    Note result = noteService.saveNote(note);
+    assertNotNull(result.getId());
+    assertEquals("Title1", result.getTitle());
     }
 }

@@ -28,10 +28,17 @@ class ContactServiceTest {
 
     @Test
     void testGetContacts() {
-        List<Contact> contacts = Arrays.asList(
-                new Contact(1L, "John Doe", "john@example.com", "1234567890"),
-                new Contact(2L, "Jane Smith", "jane@example.com", "0987654321")
-        );
+    Contact contact1 = new Contact();
+    contact1.setId(1L);
+    contact1.setName("John Doe");
+    contact1.setEmail("john@example.com");
+    contact1.setPhone("1234567890");
+    Contact contact2 = new Contact();
+    contact2.setId(2L);
+    contact2.setName("Jane Smith");
+    contact2.setEmail("jane@example.com");
+    contact2.setPhone("0987654321");
+    List<Contact> contacts = Arrays.asList(contact1, contact2);
         when(contactRepository.findAll()).thenReturn(contacts);
         List<Contact> result = contactService.getContacts();
         assertEquals(2, result.size());
@@ -40,11 +47,18 @@ class ContactServiceTest {
 
     @Test
     void testSaveContact() {
-        Contact contact = new Contact(null, "John Doe", "john@example.com", "1234567890");
-        Contact savedContact = new Contact(1L, "John Doe", "john@example.com", "1234567890");
-        when(contactRepository.save(contact)).thenReturn(savedContact);
-        Contact result = contactService.saveContact(contact);
-        assertNotNull(result.getId());
-        assertEquals("John Doe", result.getName());
+    Contact contact = new Contact();
+    contact.setName("John Doe");
+    contact.setEmail("john@example.com");
+    contact.setPhone("1234567890");
+    Contact savedContact = new Contact();
+    savedContact.setId(1L);
+    savedContact.setName("John Doe");
+    savedContact.setEmail("john@example.com");
+    savedContact.setPhone("1234567890");
+    when(contactRepository.save(contact)).thenReturn(savedContact);
+    Contact result = contactService.saveContact(contact);
+    assertNotNull(result.getId());
+    assertEquals("John Doe", result.getName());
     }
 }

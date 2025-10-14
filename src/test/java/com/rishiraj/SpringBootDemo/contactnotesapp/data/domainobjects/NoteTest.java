@@ -6,10 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class NoteTest {
     @Test
     void testNoteConstructorAndGetters() {
-        Note note = new Note(1L, "Title1", "Content1");
-        assertEquals(1L, note.getId());
-        assertEquals("Title1", note.getTitle());
-        assertEquals("Content1", note.getContent());
+    Note note = new Note();
+    note.setId(1L);
+    note.setTitle("Title1");
+    note.setContent("Content1");
+    assertEquals(1L, note.getId());
+    assertEquals("Title1", note.getTitle());
+    assertEquals("Content1", note.getContent());
     }
 
     @Test
