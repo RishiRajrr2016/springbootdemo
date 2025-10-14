@@ -1,5 +1,9 @@
 package com.rishiraj.SpringBootDemo.contactnotesapp.cxf;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.instrument.Counter;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Component;
 @WebService(endpointInterface = "com.rishiraj.SpringBootDemo.contactnotesapp.cxf.ContactNotesWebService")
 @Component
 public class ContactNotesWebServiceImpl implements ContactNotesWebService {
+    private static final Logger logger = LoggerFactory.getLogger(ContactNotesWebServiceImpl.class);
     private final MeterRegistry meterRegistry;
     private final Counter requestCounter;
     private final Counter response2xxCounter;

@@ -1,13 +1,27 @@
 spring:
+  profiles:
+    active: ${DB_TYPE:h2}
   application:
     name: notes-contacts
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    url: ${DB_URL:jdbc:h2:mem:testdb}
+    driverClassName: ${DB_DRIVER:org.h2.Driver}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/notescontacts
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: user
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
   h2:
     console:
       enabled: true
