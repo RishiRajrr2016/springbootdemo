@@ -27,6 +27,7 @@ dependencies {
 	implementation 'jakarta.jws:jakarta.jws-api:3.0.0'
 	implementation 'io.micrometer:micrometer-core:1.12.3'
 	implementation 'io.micrometer:micrometer-registry-prometheus:1.12.3'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	compileOnly 'org.projectlombok:lombok:1.18.36'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
