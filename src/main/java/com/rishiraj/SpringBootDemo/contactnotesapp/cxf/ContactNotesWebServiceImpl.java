@@ -32,8 +32,7 @@ public class ContactNotesWebServiceImpl implements ContactNotesWebService {
     @WebMethod
     public String ping() {
         requestCounter.increment();
-        return responseTimer.record(() -> {
-            // Simulate response status code logic
+        return responseTimer.record((java.util.function.Supplier<String>) () -> {
             int statusCode = 200; // Replace with actual logic if needed
             if (statusCode >= 200 && statusCode < 300) {
                 response2xxCounter.increment();
